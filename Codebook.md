@@ -15,7 +15,7 @@ the dataset zipped file.
 
 ### Tidy data-set creation process
 
-The raw dataset is created using following steps:
+The tidy dataset is created using following steps:
 
 1. Train and Test sets fo x-data is merged
 
