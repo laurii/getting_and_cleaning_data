@@ -34,7 +34,6 @@ features <- read.csv(file = "UCI HAR Dataset/features.txt",sep = "",header=FALSE
 ## Find the columns that have mean or sdt values, format the column names
 req.col.ids <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
 req.col.names <- features[c(as.vector(req.col.ids)),2]
-#req.col.names <- tolower(req.col.names)
 req.col.names <- gsub('[()]', '', req.col.names)
 req.col.names <- gsub('mean', 'Mean', req.col.names)
 req.col.names <- gsub('std', 'Std', req.col.names)
@@ -52,7 +51,7 @@ activities[,2] <- gsub("_","",activities[,2])
 activities[,2] <- tolower(activities[,2])
 
 ## Merge activity labels with y-data
-df.Y = activities[df.y[,1], 2]
+df.y <- as.data.frame(activities[df.y[,1],2])
 
 ## Label the columns for df.y and df.subject data frames 
 names(df.y) <- "activity"
@@ -62,8 +61,10 @@ names(df.subject) <- "subjectid"
 df.all <- cbind(df.x,df.y,df.subject)
 
 ## Create aggregated view for mean values for Mean and std columns
-excl.cols = which(names(df.all) %in% c("subjectid", "activity"))
-tidy <- ddply(df.all, .(subjectid, activity), .fun=function(x){ colMeans(x[,-excl.cols]) })
+excl.cols <- which(names(df.all) %in% c("subjectid", "activity"))
+## Create aggregated view for mean values for Mean and std columns
+tidy <- ddply(df.all, .(subjectid,activity), .fun = function(x){ colMeans(x[,-excl.cols]) })
 
 ## Save the result in tidy dataset
-write.table(tidy, "tidy.txt", sep="\t",row.name=FALSE)
+write.table(tidy, "tidy.txt", sep = "\t",row.name=FALSE)
+View(tidy)
