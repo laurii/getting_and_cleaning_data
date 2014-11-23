@@ -30,4 +30,31 @@ To generate dataset follow the steps
 
 The script requires package plyr.
 
-Description of the data and process is given in the file Codebook.md
+Description of the process is as follows:
+
+### Tidy data-set creation process
+
+The tidy dataset is created using following steps:
+
+1. Train and Test sets fo x-data is merged
+
+2. Train and Test sets of y-data is merged
+
+3. Train and Test sets of subject data is merged
+
+4. Features dataset is created 
+      + measurements consisting Mean and Std values are filtered 
+      
+      + column names are formated ("tGravityAcc-mean()-X" has been transformed to "tGravityAccMeanX")
+
+5. The subset of x-data with required feature labelled columns is created
+
+6. Activities data labes is created and y-data is relabelled accordingly
+
+7. x-data, y-data and activity-data is merged by columns 
+
+8. Tidy dataset is created based on the subject data and activity labels aggregation by mean  of measurement values
+
+9. Tidy dataset is saved into tidy.txt file
+
+
