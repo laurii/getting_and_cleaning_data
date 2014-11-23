@@ -34,10 +34,11 @@ features <- read.csv(file = "UCI HAR Dataset/features.txt",sep = "",header=FALSE
 ## Find the columns that have mean or sdt values, format the column names
 req.col.ids <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
 req.col.names <- features[c(as.vector(req.col.ids)),2]
-req.col.names <- tolower(req.col.names)
+#req.col.names <- tolower(req.col.names)
 req.col.names <- gsub('[()]', '', req.col.names)
 req.col.names <- gsub('mean', 'Mean', req.col.names)
 req.col.names <- gsub('std', 'Std', req.col.names)
+req.col.names <- gsub('-', '', req.col.names)
 
 ## Filter x-data with required columns
 df.x <- df.x[,req.col.ids]
