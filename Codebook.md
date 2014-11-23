@@ -1,40 +1,97 @@
 Project Codebook
 ==================================================
 
-### Data
+### Data in the tidy dataset
 
-There original data of this analysis is taken from te smartphone accelerometer and gyroscope 3-axial raw signals. It has been processed 
-which have been processed using various signal processing techniques to measurement vector consisting of 561 features. 
+The features in this database come from the accelerometer and gyroscope 3-axial raw signals mean values over activity and subject.
 
-Detailed description of the dataset is described in `features_info.txt` in
-the dataset zipped file.
+Original data is available here
 
-- [source](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) 
+- [description] http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-- [description](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+- [source] https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-### Tidy data-set creation process
+### Dataset fields
 
-The tidy dataset is created using following steps:
+The tidy dataset consist of 66 values in 180 measures
+Data present the mean values of measurement category over subjectid and activity
 
-1. Train and Test sets fo x-data is merged
+Following labels are present:
 
-2. Train and Test sets of y-data is merged
+- "subjectid"
+- "activity"
+- "tBodyAccMeanX"
+- "tBodyAccMeanY"
+- "tBodyAccMeanZ"
+- "tBodyAccStdX"  
+- "tBodyAccStdY"
+- "tBodyAccStdZ"
+- "tGravityAccMeanX"    
+- "tGravityAccMeanY"
+- "tGravityAccMeanZ"
+- "tGravityAccStdX"         
+- "tGravityAccStdY"
+- "tGravityAccStdZ"
+- "tBodyAccJerkMeanX"
+- "tBodyAccJerkMeanY"
+- "tBodyAccJerkMeanZ"
+- "tBodyAccJerkStdX"
+- "tBodyAccJerkStdY"
+- "tBodyAccJerkStdZ"
+- "tBodyGyroMeanX"
+- "tBodyGyroMeanY"
+- "tBodyGyroMeanZ"
+- "tBodyGyroStdX"
+- "tBodyGyroStdY"
+- "tBodyGyroStdZ"
+- "tBodyGyroJerkMeanX"
+- "tBodyGyroJerkMeanY"
+- "tBodyGyroJerkMeanZ"
+- "tBodyGyroJerkStdX"
+- "tBodyGyroJerkStdY"
+- "tBodyGyroJerkStdZ"
+- "tBodyAccMagMean"         
+- "tBodyAccMagStd"
+- "tGravityAccMagMean"
+- "tGravityAccMagStd"
+- "tBodyAccJerkMagMean"
+- "tBodyAccJerkMagStd"
+- "tBodyGyroMagMean"        
+- "tBodyGyroMagStd"
+- "tBodyGyroJerkMagMean"
+- "tBodyGyroJerkMagStd"     
+- "fBodyAccMeanX"
+- "fBodyAccMeanY"
+- "fBodyAccMeanZ"
+- "fBodyAccStdX"
+- "fBodyAccStdY"
+- "fBodyAccStdZ"            
+- "fBodyAccJerkMeanX"
+- "fBodyAccJerkMeanY"
+- "fBodyAccJerkMeanZ"       
+- "fBodyAccJerkStdX"
+- "fBodyAccJerkStdY"
+- "fBodyAccJerkStdZ"        
+- "fBodyGyroMeanX"
+- "fBodyGyroMeanY"
+- "fBodyGyroMeanZ"          
+- "fBodyGyroStdX"
+- "fBodyGyroStdY"
+- "fBodyGyroStdZ"           
+- "fBodyAccMagMean"
+- "fBodyAccMagStd"
+- "fBodyBodyAccJerkMagMean"
+- "fBodyBodyAccJerkMagStd"
+- "fBodyBodyGyroMagMean"
+- "fBodyBodyGyroMagStd"     
+- "fBodyBodyGyroJerkMagMean"
+- "fBodyBodyGyroJerkMagStd"
 
-3. Train and Test sets of subject data is merged
+Activity labels have following values
 
-4. Features dataset is created 
-      + measurements consisting Mean and Std values are filtered 
-      
-      + column names are formated ("tGravityAcc-mean()-X" has been transformed to "tGravityAccMeanX")
-
-5. The subset of x-data with required feature labelled columns is created
-
-6. Activities data labes is created and y-data is relabelled accordingly
-
-7. x-data, y-data and activity-data is merged by columns 
-
-8. Tidy dataset is created based on the subject data and activity labels aggregation by mean  of measurement values
-
-9. Tidy dataset is saved into tidy.txt file
-
+- "walking"
+- "walkingupstairs"
+- "walkingdownstairs"
+- "sitting"          
+- "standing"
+- "laying
